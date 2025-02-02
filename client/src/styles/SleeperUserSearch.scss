@@ -1,25 +1,30 @@
-// Variables
-$primary-color: #4CAF50;
+@use 'sass:color';
+
+$primary-color: #4caf50;
 $secondary-color: #333;
 $disabled-color: #ccc;
 $error-color: red;
+
 $input-padding: 10px;
 $button-padding: 10px 20px;
 $font-size: 16px;
-$max-width: 500px;
 $container-padding: 20px;
 $border-radius: 8px;
+$box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 
-// Scoped styles for the SleeperUserSearch component
+@mixin transition($property, $duration: 0.3s) {
+  transition: $property $duration ease;
+}
+
 .sleeper-user-search {
   background-color: white;
   padding: $container-padding;
-  max-width: $max-width;
+  max-width: 500px;
   width: 100%;
   border-radius: $border-radius;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: $box-shadow;
   text-align: center;
-  margin: 0 auto; /* Ensure the component is centered in its parent container */
+  margin: 0 auto;
 
   .title {
     font-size: 1.8rem;
@@ -28,15 +33,14 @@ $border-radius: 8px;
   }
 
   .input-field {
-    width: 100%;              /* Ensures input takes up full available width */
+    width: 100%;
     padding: $input-padding;
     font-size: $font-size;
     margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
     outline: none;
-    transition: border-color 0.3s;
-    box-sizing: border-box;  /* Ensures padding and border are included in width */
+    @include transition(border-color);
 
     &:focus {
       border-color: $primary-color;
@@ -51,9 +55,9 @@ $border-radius: 8px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 100%;             /* Ensures button takes up full width */
+    width: 100%;
     margin-bottom: 20px;
-    transition: background-color 0.3s;
+    @include transition(background-color);
 
     &:disabled {
       background-color: $disabled-color;
@@ -61,7 +65,7 @@ $border-radius: 8px;
     }
 
     &:hover:not(:disabled) {
-      background-color: darken($primary-color, 5%);
+      background-color: color.adjust($primary-color, $lightness: -5%);
     }
   }
 
@@ -72,27 +76,26 @@ $border-radius: 8px;
   }
 
   .user-info {
-    background-color: #f9f9f9;  /* Light gray background */
+    background-color: #f9f9f9;
     padding: 15px;
     border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: $box-shadow;
     margin-top: 20px;
     text-align: left;
-  
+
     h2 {
       font-size: 1.4rem;
       margin-bottom: 10px;
-      color: $secondary-color;  /* Dark color for the display name */
+      color: $secondary-color;
     }
-  
+
     p {
       font-size: 1.2rem;
-      color: #555;  /* Slightly lighter color for the user ID */
+      color: #555;
     }
   }
 }
 
-// Media Queries for responsiveness
 @media (max-width: 600px) {
   .sleeper-user-search {
     padding: 15px;
@@ -103,7 +106,8 @@ $border-radius: 8px;
     font-size: 1.5rem;
   }
 
-  .input-field, .submit-button {
+  .input-field,
+  .submit-button {
     font-size: 14px;
   }
 

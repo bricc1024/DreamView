@@ -1,5 +1,4 @@
 import './App.scss';
-// Import the SleeperUserSearch component
 import SleeperUserSearch from './components/SleeperUserSearch';
 
 function App() {
