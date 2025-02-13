@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SleeperUser } from '../models/SleeperUser';
+import { SleeperUser } from '../../models/SleeperUser';
 import '../styles/SleeperUserSearch.scss';
 
 const SleeperUserSearch: React.FC = () => {

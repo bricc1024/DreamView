@@ -1,5 +1,5 @@
 import './App.scss';
-import SleeperUserSearch from './components/SleeperUserSearch';
+import SleeperUserSearch from './components/SleeperUserSearch/SleeperUserSearch';
 
 function App() {
   return (
