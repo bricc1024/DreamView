@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { SleeperUser } from '../models/SleeperUser';
-import '../styles/SleeperUserSearch.scss';
+import { SleeperUser } from '../../models/SleeperUser';
+import './SleeperUserSearch.scss';
 
 const SleeperUserSearch: React.FC = () => {
   const [username, setUsername] = useState<string>('');
@@ -20,6 +20,9 @@ const SleeperUserSearch: React.FC = () => {
       }
 
       const data: SleeperUser = await response.json();
+      if (data == null) {
+        throw new Error('Failed to fetch user data');
+      }
       setSleeperUser(data);
     } catch (err) {
       setError((err as Error).message);
