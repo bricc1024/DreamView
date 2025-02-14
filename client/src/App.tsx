@@ -1,11 +1,11 @@
 import './App.scss';
-import SleeperUserSearch from './components/SleeperUserSearch/SleeperUserSearch';
+import LandingPage from './components/LandingPage/LandingPage';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <SleeperUserSearch />
+        <LandingPage />
       </header>
     </div>
   );
